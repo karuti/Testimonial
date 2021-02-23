@@ -1,0 +1,358 @@
+super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    
+    fetch('https://script.google.com/macros/s/AKfycbynVwvTEGGcnBn_OB5UuraPGO-OVJGx0fCHUZ-aJa612HjIqV5X/exec', {
+      method: 'POST',
+      body: data,
+    });
+    window.location.href = 'https://fieldproapp.com/get-trial/';
+  }
+  render() {
+    return (
+      <Layout>
+        <CTAGroup>
+          <CTAImage>
+            <img src={require("../../../static/images/illustration.png")} />
+          </CTAImage>
+          <CTAText>
+            <H2>Digitise your field sales operations</H2>
+            <CTAForm onSubmit={this.handleSubmit}>
+              <Email>
+                <Label>Email</Label>
+                <Input
+                  type="email"
+                  name="Email"
+                  id="email"
+                  placeholder="email@workplace.com"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                />
+              </Email>
+              <Button
+                type="submit"
+                id="getStarted"
+              >
+
+
+
+
+
+
+
+
+
+               this.state = {
+      isModalOpen: false,
+    }
+  }
+  handleModalOpen = event => {
+    // console.log('handleModalOpen: ', event);
+    this.setState({ isModalOpen: true })
+  }
+
+  handleModalClose = event => {
+    // console.log('handleModalOpen: ', event);
+    this.setState({ isModalOpen: false })
+  }
+
+  render() {
+    return (
+      <Layout>
+        <div id="main">
+          <h1>Hi people</h1>
+          <p>Welcome to your new Gatsby site.</p>
+          <p>Now go build something great.</p>
+
+          <Link to="#" onClick={this.handleModalOpen}>
+            Donate Now
+          </Link>
+        </div>
+        <ReactModal
+          isOpen={this.state.isModalOpen}
+          onRequestClose={this.handleModalClose}
+          contentLabel="Example Modal In Gatsby"
+        >
+          <h2>Donate</h2>
+          <button onClick={this.handleModalClose}>Close Modal</button>
+        </ReactModal>
+      </Layout>
+    )
+  }
+}
+
+
+//////////////////form.////////////////
+import React, { Component, useState } from "react"  
+
+import styled from "styled-components";
+import { ScheduleButton } from "../components/Buttons/CtaButton.js";
+
+
+import { Label  ,H3,P,} from "../components/styles/TextStyles.js";
+class ScheduleModal extends Component {
+    constructor (props) {
+    super(props);
+      this.state = { country: '' };
+      this.state = {value: ''};
+   // this.state = {showModal: false};
+   // this.handleClick = this.handleClick.bind(this);
+   // this.handleChange = this.handleChange.bind(this);
+   // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+   // const { isOpen, openModal, closeModal, Modal } = useModal()
+ render(){
+  return (
+    <>
+      <ScheduleButton /*onClick={openModal}*/>Schedule a Demo</ScheduleButton>
+          {//isOpen && (
+              <Modal>
+                  <ModalContent>
+                      <ModalHeader>
+                           <Close /*onClick={closeModal}*/ >&times;</Close>
+        <ModalTitle>
+        Schedule a Demo
+        </ModalTitle>                    
+        <Description>
+        Fill the form below to gain access to a demo of our mobile and web app
+        </Description>
+      </ModalHeader>
+                      <ModalBody>
+                    <form >
+      <NameBlock>
+        <FormGroup>
+        <Label>First Name*</Label>
+        <InputSmall
+          type="text"
+          name="FirstName"
+          id="name"
+         />
+        </FormGroup>
+        <FormGroup>
+        <Label>Last Name*</Label>
+        <InputSmall
+          type="text"
+          name="LastName"
+          id="name"
+        /></FormGroup>
+        </NameBlock>
+        <FormGroup>
+        <Label>Email Address*</Label>
+        <InputBox
+          type="email"
+          name="Email"
+          id="email"
+          placeholder="yourworkemail@yourcompany.com"
+        />
+        </FormGroup>
+        <PhoneBlock>
+        <FormGroup>
+                                   
+        <Label>Country*</Label> 
+        
+                                
+
+     </FormGroup>
+         <FormGroup>                        
+        <Label>Phone Number*</Label>
+        <InputSmall
+          type="text"
+          name="phonenumber"
+          id=""
+          placeholder="0700000000"
+        /></FormGroup>
+                             </PhoneBlock> 
+       <FormGroup>                      
+        <Label>Company Name</Label>
+        <InputBox
+          name="company-name"
+          type="text"
+          id=""
+          placeholder="Enter your Company Name"
+                                 /></FormGroup>
+         <FormGroup>
+        <Label>Number of Field Staff</Label>
+        <InputBox
+          name="FieldUsers"
+          type="number"
+          id=""
+          placeholder="Enter the number of people to use the app"
+                                 />
+         </FormGroup>
+                             <ScheduleButton
+                               
+                             >Schedule a Demo</ScheduleButton>
+    </form>
+                      </ModalBody>
+                  
+                  <ModalFooter>
+                         <Privacy>
+                             We value your privacy; 
+                             Your information will only be used for our own internal processes and will not be shared with any external party
+                          </Privacy>
+                      </ModalFooter>
+                      </ModalContent>
+              </Modal>
+         // )
+          }
+    </>
+  )}
+}
+export default ScheduleModal
+const Modal = styled.div`
+display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  margin: 0 auto;
+` 
+const ModalHeader = styled.div`` 
+const ModalTitle = styled(H3)`
+padding-top:40px;
+` 
+const Description = styled(P)``
+const ModalBody=styled.div``
+const ModalContent = styled.div`
+    width: 620px;
+    height: 1100px;
+    border-radius: 8px;
+    box-shadow: 0 0 48px 0 rgba(0, 0, 0, 0.16);
+    background-color: #fefefe;
+    padding-left: 32px;
+    padding-right: 24px;
+    margin: 10% auto;
+    align-items: center;
+` 
+const FormGroup = styled.div`
+padding-top:20px;
+display:grid;
+gap:4px;
+`
+const InputBox = styled.input`
+  width:544px;
+  margin: 0;
+  padding: 0 1em;
+  height: 3em;
+  border-style: solid;
+  border-color: #2c2c2c;
+  border-width: 0.1em;
+  border-radius: 0.2em;
+  font-size: 1.2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+`
+const InputSmall = styled.input`
+  margin: 0;
+  padding: 0 1em;
+  height: 3em;
+  width: 262px;
+  border-style: solid;
+  border-color: #2c2c2c;
+  border-width: 0.1em;
+  border-radius: 0.2em;
+  font-size: 1.2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+`
+const NameBlock = styled.div`
+display:grid;
+grid-template-columns: auto auto;
+gap:20px;
+
+`
+
+const PhoneBlock = styled.div`
+display:grid;
+grid-template-columns:auto auto;
+gap:20px;
+`
+const Close = styled.div`
+  color: #aaa;
+  font-size: 64px;
+  float: right;
+  font-weight: bold;
+:hover,focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;}`
+
+const ModalFooter = styled.div`` 
+const Privacy = styled.p``
+
+
+
+
+
+
+ ////////////
+ import React from 'react'
+import { Button, Icon, Modal } from 'semantic-ui-react'
+
+function ModalExampleMultiple() {
+  const [firstOpen, setFirstOpen] = React.useState(false)
+  const [secondOpen, setSecondOpen] = React.useState(false)
+
+  return (
+    <>
+      <Button onClick={() => setFirstOpen(true)}>Open first Modal</Button>
+
+      <Modal
+        onClose={() => setFirstOpen(false)}
+        onOpen={() => setFirstOpen(true)}
+        open={firstOpen}
+      >
+        <Modal.Header>Modal #1</Modal.Header>
+        <Modal.Content image>
+          <div className='image'>
+            <Icon name='right arrow' />
+          </div>
+          <Modal.Description>
+            <p>We have more to share with you. Follow us along to modal 2</p>
+          </Modal.Description>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button onClick={() => setSecondOpen(true)} primary>
+            Proceed <Icon name='right chevron' />
+          </Button>
+        </Modal.Actions>
+
+        <Modal
+          onClose={() => setSecondOpen(false)}
+          open={secondOpen}
+          size='small'
+        >
+          <Modal.Header>Modal #2</Modal.Header>
+          <Modal.Content>
+            <p>That's everything!</p>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button
+              icon='check'
+              content='All Done'
+              onClick={() => setSecondOpen(false)}
+            />
+          </Modal.Actions>
+        </Modal>
+      </Modal>
+    </>
+  )
+}
+
+export default ModalExampleMultiple
