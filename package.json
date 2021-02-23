@@ -39,6 +39,7 @@
     "react-modal": "^3.12.1",
     "react-phone-number-input": "^3.1.16",
     "react-responsive-modal": "^6.0.1",
+    "react-select": "^4.1.0",
     "styled-components": "^5.2.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
