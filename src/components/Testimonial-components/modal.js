@@ -70,7 +70,11 @@ class ScheduleModal extends Component {
             <Description>
               Someone from our sales team will be in touch shortly to schedule a
               demo and set up your free trial.Feel free to contact us at
-              sales@optimetriks.com if you have any questions.
+              <span style={{ fontWeight: "bold" }}>
+                {" "}
+                sales@optimetriks.com{" "}
+              </span>
+              if you have any questions.
             </Description>
             <Button
               style={{ color: "#fefefe", margin: "0" }}
