@@ -1,47 +1,23 @@
 import React from "react"
-import styled from "styled-components"
-import { Button } from "../components/styles/TextStyles"
-class Header extends React.Component {
-  constructor() {
-    super()
-    this.state = { showModal: false }
-    this.state = { showModalTwo: false }
-
-    this.handleClick = this.handleClick.bind(this)
-    this.handleModalTwo = this.handleClick.bind(this)
-  }
-  handleClick() {
-    this.setState(prevState => ({
-      showModal: !prevState.showModal,
-    }))
-  }
-  handleModalTwo() {
-    this.setState(prevState => ({
-      showModalTwo: !prevState.showModalTwo,
-    }))
-  }
-  render() {
-    const modaltwo = (
-      <>
-        <Modal>Modal 2</Modal>
-      </>
-    )
-    const modal = (
-      <>
-        <Modal>
-          Modal 1<Button onClick={this.handleModalTwo}>oPEN TWO</Button>
-        </Modal>
-      </>
-    )
-
-    return (
-      <>
-        <Button onClick={this.handleClick}>Schedule a Demo</Button>
-        {this.state.showModal ? modal : ""}
-        {this.state.showModalTwo ? modaltwo : ""}
-      </>
-    )
-  }
+import ContentCard from "../components/IndustryPages/contentCard"
+import Hero from "../components/IndustryPages/hero"
+function Test() {
+  return (
+    <>
+      <Hero />
+      <ContentCard
+        title="Understand your trade presence"
+        content="Identify a retailer on all key information: Contact, GPS, picture, equipment presence, etc"
+        contentTwo="Create distribution zones. Assign retailers to them or to sales rep and measure coverage."
+        contentThree="Create optimal routes and journey plans to visit them regularly and guide field work."
+        textcta={
+          <a style={{ color: "#febd55" }} href="https://fieldproapp.com/app/">
+            Learn more about the FieldPro app
+          </a>
+        }
+        productpicture={<img src="/images/trade.png" alt="Zagol Milk" />}
+      />
+    </>
+  )
 }
-export default Header
-const Modal = styled.div``
+export default Test

@@ -1,38 +1,40 @@
-import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import { DownloadButton, ScheduleButton } from "../Buttons/CtaButton"
+import { DownloadButton } from "../Buttons/CtaButton"
 import { H2 } from "../styles/TextStyles"
-import ScheduleModal from "./modal"
-
-function CallToAction(props) {
+import ScheduleModal from "../Testimonial-components/modal"
+function BottomCta(props) {
   const { tagline } = props
   return (
-    <CTAContainer>
-      <CTABg>
-        <img src="/images/illustration.png" alt="Illustration" />
-      </CTABg>
-      <CTAGroup>
-        <CTAText>
-          <Tagline>
-            {tagline || "Become a part of our esteemed customers "}
-          </Tagline>
-          <CTAForm>
-            <ScheduleModal>Schedule a Demo</ScheduleModal>
-            <Link
-              target="_parent"
-              to="https://play.google.com/store/apps/details?id=com.optimetriks.smala"
-            >
-              <DownloadButton>Download Free Trial</DownloadButton>
-            </Link>
-          </CTAForm>
-        </CTAText>
-      </CTAGroup>
-    </CTAContainer>
+    <>
+      <CallToAction>
+        <CtaBackground>
+          <img src="/images/illustration.png" alt="Illustration" />
+        </CtaBackground>
+        <CtaContent>
+          <CtaText>
+            <Tagline style={{ color: "#fefefe" }}>
+              {tagline || "Become a part of our esteemed customers "}
+            </Tagline>
+            <CtaGroup>
+              <ScheduleModal>Schedule a Demo</ScheduleModal>
+
+              <a
+                href="https://play.google.com/store/apps/details?id=com.optimetriks.smala"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DownloadButton>Download Free Trial</DownloadButton>
+              </a>
+            </CtaGroup>
+          </CtaText>
+        </CtaContent>
+      </CallToAction>
+    </>
   )
 }
-export default CallToAction
-const CTAContainer = styled.div`
+export default BottomCta
+const CallToAction = styled.div`
   position: relative;
   display: grid;
   max-width: 1234px;
@@ -46,12 +48,12 @@ const CTAContainer = styled.div`
     margin: 100px 0px;
   }
 `
-const CTABg = styled.div`
+const CtaBackground = styled.div`
   position: absolute;
   align-self: center;
   z-index: 1;
 `
-const CTAGroup = styled.div`
+const CtaContent = styled.div`
   position: relative;
   display: grid;
   max-width: 1234px;
@@ -70,11 +72,11 @@ const CTAGroup = styled.div`
   }
 `
 const Tagline = styled(H2)``
-const CTAText = styled.div`
+const CtaText = styled.div`
   position: relative;
   align-self: center;
   top: -2em;
-  color: #fefefe;
+  color: #2a2a2a;
   max-width: 56em;
   padding: 0;
   z-index: 2;
@@ -96,12 +98,12 @@ const CTAText = styled.div`
     padding: 0;
   }
 `
-const CTAForm = styled.form`
+
+const CtaGroup = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  justify-content: flex-start;
-  margin: -1em 0 1em 0;
-  @media (max-width: 32em) {
+  grid-template-columns: 350px 300px;
+  grid-gap: 0px;
+  @media (max-width: 450px) {
     grid-template-columns: repeat(1, auto);
   }
 `

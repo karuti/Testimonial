@@ -29,11 +29,10 @@ class ScheduleModal extends Component {
   }
   //submit to sheets
   handleSubmit(event) {
-    event.preventDefault()
     const data = new FormData(event.target)
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbz0vmYdgOg1FF15187B6Gdcke1c8W_X0JZQsy8tP0VMbD7dG8hfeGOy/exec",
+      "https://script.google.com/macros/s/AKfycbx_UudIb3ftPg2_UaW2PBCaVAGQ51K91w6VQBlXUG4zC-P31IU1/exec",
       {
         method: "POST",
         body: data,
